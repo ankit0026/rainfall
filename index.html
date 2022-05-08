@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+    #slider{
+            transform: rotate(270deg);
+            margin-top:220px;
+            
+        }
+        .info{
+           padding-left: 450px;
+           margin-top: -400px;
+        }
+        .right{
+            width: 20%;
+            float: left;
+        }
+        .image{
+            margin-top: 0px;
+            float: center;
+            
+        }
+        input[type="range"] {
+            width:405px;
+        }
+        output{
+           margin-top: 30px;
+           padding: 5px;
+            background-color: yellow;
+            margin-left: 190px;
+            font-family: cursive;
+            font-weight: bold;
+            width: 25px;
+            align-items: center;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <div class="right"><input type="range" min="0" max="100" id="slider" oninput="outputUpdate(this.value)"></div>
+       <div class="image"> <img src="images/26829791.jpg" width="10%" ></div>
+       <output for="Preisliter" id="volume"> 0 </output>
+   <div class="info"><h3>Please, Enter height (in cms):-</h3>
+    <input type="number" id="height"><br><br>
+    <button type="submit" onclick="calculate()">Calculate</button><br><br>
+    <h3>Rainfall (in %):-</h3>
+    <p id="value"></p></div>
+   <script>
+    function outputUpdate(vol) {
+	document.querySelector('#volume').value = vol;
+    }
+     function calculate(){
+      var height=document.getElementById("height").value;
+      var slide_range=document.getElementById("volume").value;
+      var slide=document.getElementById("slider").value;
+      var sub_total=(height/100)*slide_range;
+      var total=(sub_total*100)/height;
+      document.getElementById("value").innerHTML=total+ "%";
+
+     }
+   </script>
+   
+    
+</body>
+</html>
